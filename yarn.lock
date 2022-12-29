@@ -6227,6 +6227,11 @@ validate-npm-package-name@^5.0.0:
   dependencies:
     builtins "^5.0.0"
 
+vaughntech-nodejs-powertools-lambdalayer@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/vaughntech-nodejs-powertools-lambdalayer/-/vaughntech-nodejs-powertools-lambdalayer-0.0.5.tgz#1460570892c6d9fa3ef4eacba72486bc588691e0"
+  integrity sha512-jiGZCUqOuigipfX76QYlyr+K+K2wHTYICV1UCx/c8ve6Yq5jr4S79tI3UuWjQwqKkFXrHKYCLnuG0NoMzu5Gpg==
+
 w3c-hr-time@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/w3c-hr-time/-/w3c-hr-time-1.0.2.tgz#0a89cdf5cc15822df9c360543676963e0cc308cd"

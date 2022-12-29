@@ -12,7 +12,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['functions', 'nodejs', 'cdk', 'AWS', 'lambda', 'powertools'],
 
   deps: [], /* Runtime dependencies of this module. */
-  devDeps: [], /* Build dependencies for this module. */
+  devDeps: [
+    'vaughntech-nodejs-powertools-lambdalayer'
+  ], /* Build dependencies for this module. */
   workflowContainerImage: 'jsii/superchain:1-buster-slim-node16',
   workflowNodeVersion: '18.12.1',
   autoApproveOptions: {
