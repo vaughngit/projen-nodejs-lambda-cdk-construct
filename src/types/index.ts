@@ -1,5 +1,8 @@
 import { LayerVersion } from 'aws-cdk-lib/aws-lambda';
-import { LogLevel } from '../types';
+//import { LogLevel } from '../types';
+
+/** Log Levels */
+export type LogLevel = 'DEBUG' | 'INFO' | 'WARN' | 'ERROR';
 
 /** PowerTools Env Variables */
 export type PowerToolsEnvProps = {
@@ -52,7 +55,7 @@ export type PowerToolsEnvProps = {
 
 export type CustomFunctionProps = {
   /** Parent service name */
-  svcName: string;
+  functionName: string;
 
   /** Function description */
   description?: string;

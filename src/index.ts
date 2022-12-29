@@ -50,7 +50,7 @@ export class CustomFunction extends Construct {
     super(scope, id);
 
     const {
-      svcName, description, entry, label = 'Function',
+      functionName, description, entry, label = 'Function',
       layers = [], environment = {},
       powerToolsOptions = {}, functionProps = {},
     } = props;
@@ -66,7 +66,7 @@ export class CustomFunction extends Construct {
       timeout = 10,
     } = functionProps;
     const metricNamespace = powerToolsOptions.metricsNamespace || 'DemoNamespace';
-    const metricsSvcName = svcName.toUpperCase();
+    const metricsSvcName = functionName.toUpperCase();
 
     const powertoolsEnv: PowerToolsEnvProps = {
       POWERTOOLS_SERVICE_NAME: metricsSvcName,
@@ -76,7 +76,7 @@ export class CustomFunction extends Construct {
       POWERTOOLS_TRACER_CAPTURE_RESPONSE: (logLevel === 'DEBUG') ? 'true' : 'false',
     };
 
-    const toolsLayer = props.toolsLayer || new ToolsLayer(this, 'ToolsLayer', { svcName }).layerVersion;
+    const toolsLayer = props.toolsLayer || new ToolsLayer(this, 'ToolsLayer', { layerVersionName: functionName }).layerVersion;
 
     const fnc = new NodejsFunction(this, 'Fnc', {
       description,
