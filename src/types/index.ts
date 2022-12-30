@@ -65,7 +65,7 @@ export type CustomFunctionProps = {
      * Used in logs and widgets because
      * we generate a less friendly function
      * name by default.
-     */
+   */
   label?: string;
 
   /**
@@ -77,7 +77,7 @@ export type CustomFunctionProps = {
   /**
      * Layer containing PowerTools modules.
      * If not included a layer will be created.
-     */
+   */
   toolsLayer?: LayerVersion;
 
   /** Add other layers if required */
@@ -126,7 +126,7 @@ export type CustomFunctionProps = {
     logEvent?: boolean;
     /**
          * Metrics Namespace.
-         * @default: 'DemoNamespace
+         * @default: 'DemoNamespace'
          */
     metricsNamespace?: string;
   };

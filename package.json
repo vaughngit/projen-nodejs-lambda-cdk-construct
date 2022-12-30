@@ -33,11 +33,17 @@
     "organization": false
   },
   "devDependencies": {
+    "@aws-lambda-powertools/commons": "^1.5.0",
+    "@aws-lambda-powertools/logger": "^1.5.0",
+    "@aws-lambda-powertools/metrics": "^1.5.0",
+    "@aws-lambda-powertools/tracer": "^1.5.0",
+    "@middy/core": "*",
     "@types/jest": "^27",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-cdk-lib": "2.58.0",
+    "aws-sdk": "^2.1285.0",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
@@ -47,15 +53,16 @@
     "jest-junit": "^13",
     "jsii": "^1.72.0",
     "jsii-diff": "^1.72.0",
-    "jsii-docgen": "^7.0.188",
+    "jsii-docgen": "^7.0.189",
     "jsii-pacmak": "^1.72.0",
     "json-schema": "^0.4.0",
+    "moment": "^2.29.4",
     "npm-check-updates": "^16",
-    "projen": "^0.65.75",
+    "projen": "^0.65.76",
     "standard-version": "^9",
     "ts-jest": "^27",
     "typescript": "^4.9.4",
-    "vaughntech-nodejs-powertools-lambdalayer": "^0.0.5"
+    "vaughntech-nodejs-powertools-lambdalayer": "^0.0.8"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.58.0",

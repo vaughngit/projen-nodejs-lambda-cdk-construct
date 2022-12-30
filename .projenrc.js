@@ -11,9 +11,18 @@ const project = new awscdk.AwsCdkConstructLibrary({
   license: 'Apache-2.0',
   keywords: ['functions', 'nodejs', 'cdk', 'AWS', 'lambda', 'powertools'],
 
-  deps: [], /* Runtime dependencies of this module. */
+  deps: [
+
+  ], /* Runtime dependencies of this module. */
   devDeps: [
-    'vaughntech-nodejs-powertools-lambdalayer'
+    'vaughntech-nodejs-powertools-lambdalayer',
+    '@aws-lambda-powertools/commons',
+    '@aws-lambda-powertools/logger',
+    '@aws-lambda-powertools/metrics',
+    '@aws-lambda-powertools/tracer',
+    '@middy/core',
+    'aws-sdk',
+    'moment',
   ], /* Build dependencies for this module. */
   workflowContainerImage: 'jsii/superchain:1-buster-slim-node16',
   workflowNodeVersion: '18.12.1',

@@ -31,7 +31,7 @@ const toolsModuleList = [
  * Creates a Lambda function from the Typescript source.
  * Includes PowerTools logging option settings.
  */
-export class CustomFunction extends Construct {
+export class NodeJsPowerToolsFunction extends Construct {
   /** The new function */
   function: NodejsFunction;
 
@@ -46,25 +46,34 @@ export class CustomFunction extends Construct {
      * @param {string} id
      * @param {CustomFunctionProps} props
      */
+
   constructor(scope: Construct, id: string, props: CustomFunctionProps) {
     super(scope, id);
 
     const {
-      functionName, description, entry, label = 'Function',
-      layers = [], environment = {},
-      powerToolsOptions = {}, functionProps = {},
+      functionName, 
+      description, 
+      entry, 
+      label = 'Function',
+      layers = [], 
+      environment = {},
+      powerToolsOptions = {}, 
+      functionProps = {},
     } = props;
+
 
     // Set Defaults
     const {
       logLevel = 'INFO',
       logEvent = false,
     } = powerToolsOptions;
+
     const {
       logRetention = 30,
       memorySize = 128,
       timeout = 10,
     } = functionProps;
+
     const metricNamespace = powerToolsOptions.metricsNamespace || 'DemoNamespace';
     const metricsSvcName = functionName.toUpperCase();
 
