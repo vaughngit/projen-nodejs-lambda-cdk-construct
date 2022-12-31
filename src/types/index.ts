@@ -5,55 +5,55 @@ import { LayerVersion } from 'aws-cdk-lib/aws-lambda';
 export type LogLevel = 'DEBUG' | 'INFO' | 'WARN' | 'ERROR';
 
 /** PowerTools Env Variables */
-export type PowerToolsEnvProps = {
+export interface IPowerToolsEnvProps {
   /**
      * Sets service name used for tracing namespace, metrics dimension and structured logging
      * @default 'service_undefined'
      * */
-  POWERTOOLS_SERVICE_NAME?: string;
+  powertoolsServiceName?: string;
   /**
      * Sets namespace used for metrics
      * @default null
      * */
-  POWERTOOLS_METRICS_NAMESPACE?: string;
+  powertoolsMetricsNamespace?: string;
   /**
      * Explicitly enables/disables tracing
      * @default 'true'
      * */
-  POWERTOOLS_TRACE_ENABLED?: 'true' | 'false';
+  powertoolsTraceEnabled?: 'true' | 'false';
   /**
      * Captures Lambda or method return as metadata.
      * @default 'true'
      * */
-  POWERTOOLS_TRACER_CAPTURE_RESPONSE?: 'true' | 'false';
+  powertoolsTracerCaptureResponse?: 'true' | 'false';
   /**
      * Captures Lambda or method exception as metadata.
      * @default 'true'
      * */
-  POWERTOOLS_TRACER_CAPTURE_ERROR?: 'true' | 'false';
+  powertoolsTracerCaptureError?: 'true' | 'false';
   /**
      * Captures HTTP(s) requests as segments.
      * @default 'true'
      * */
-  POWERTOOLS_TRACER_CAPTURE_HTTPS_REQUESTS?: 'true' | 'false';
+  powertoolsTracerCaptureHttpsRequests?: 'true' | 'false';
   /**
      * Logs incoming event
      * @default 'false'
      * */
-  POWERTOOLS_LOGGER_LOG_EVENT?: 'true' | 'false';
+  powertoolsLoggerLogEvent?: 'true' | 'false';
   /**
      * Debug log sampling rate. Zero means all events.
      * @default '0'
      * */
-  POWERTOOLS_LOGGER_SAMPLE_RATE?: string;
+  powertoolsLoggerSampleRate?: string;
   /**
      * Sets logging level
      * @default 'INFO'
      * */
-  LOG_LEVEL?: LogLevel;
+  //logLevel?: LogLevel;
 };
 
-export type CustomFunctionProps = {
+export interface ICustomFunctionProps {
   /** Parent service name */
   functionName: string;
 
@@ -78,7 +78,7 @@ export type CustomFunctionProps = {
      * Layer containing PowerTools modules.
      * If not included a layer will be created.
    */
-  toolsLayer?: LayerVersion;
+  //toolsLayer: LayerVersion;
 
   /** Add other layers if required */
   layers?: LayerVersion[];
@@ -87,10 +87,10 @@ export type CustomFunctionProps = {
      * Env variables.
      * PowerTools and env name are included by default.
      */
-  environment?: {
+  /*   environment?: {
     [key: string]: string;
   };
-
+ */
   /** Function props */
   functionProps?: {
     /**

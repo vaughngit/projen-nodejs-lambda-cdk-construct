@@ -1,26 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "@aws-lambda-powertools/commons",
-      "type": "build"
-    },
-    {
-      "name": "@aws-lambda-powertools/logger",
-      "type": "build"
-    },
-    {
-      "name": "@aws-lambda-powertools/metrics",
-      "type": "build"
-    },
-    {
-      "name": "@aws-lambda-powertools/tracer",
-      "type": "build"
-    },
-    {
-      "name": "@middy/core",
-      "type": "build"
-    },
-    {
       "name": "@types/jest",
       "version": "^27",
       "type": "build"
@@ -43,10 +23,6 @@
     {
       "name": "aws-cdk-lib",
       "version": "2.58.0",
-      "type": "build"
-    },
-    {
-      "name": "aws-sdk",
       "type": "build"
     },
     {
@@ -102,10 +78,6 @@
       "type": "build"
     },
     {
-      "name": "moment",
-      "type": "build"
-    },
-    {
       "name": "npm-check-updates",
       "version": "^16",
       "type": "build"
@@ -129,8 +101,32 @@
       "type": "build"
     },
     {
-      "name": "vaughntech-nodejs-powertools-lambdalayer",
-      "type": "build"
+      "name": "@aws-lambda-powertools/commons",
+      "type": "bundled"
+    },
+    {
+      "name": "@aws-lambda-powertools/logger",
+      "type": "bundled"
+    },
+    {
+      "name": "@aws-lambda-powertools/metrics",
+      "type": "bundled"
+    },
+    {
+      "name": "@aws-lambda-powertools/tracer",
+      "type": "bundled"
+    },
+    {
+      "name": "@middy/core",
+      "type": "bundled"
+    },
+    {
+      "name": "aws-sdk",
+      "type": "bundled"
+    },
+    {
+      "name": "moment",
+      "type": "bundled"
     },
     {
       "name": "@types/babel__traverse",

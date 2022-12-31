@@ -9,14 +9,16 @@ import { Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
-import { CustomFunctionProps, PowerToolsEnvProps } from './types';
-import { ToolsLayer } from 'vaughntech-nodejs-powertools-lambdalayer';
+//import { CustomFunctionProps, PowerToolsEnvProps } from './types';
+//import { PowerToolsEnvProps } from './types';
+//import { ToolsLayer } from 'vaughntech-nodejs-powertools-lambdalayer';
 
 /**
  * External npm modules that are included in the tools-layer.
  * These module are excluded in the bundle process.
  * This list needs to be updated if modules are added/removed from the tools-layer.
  */
+/*
 const toolsModuleList = [
   '@aws-lambda-powertools/commons',
   '@aws-lambda-powertools/logger',
@@ -27,10 +29,30 @@ const toolsModuleList = [
   'moment',
 ];
 
+ */
 /**
  * Creates a Lambda function from the Typescript source.
  * Includes PowerTools logging option settings.
  */
+export interface IPowerToolsProps {
+  /**
+ * Debug log sampling rate. Zero means all events.
+ * @default 'testfunction'
+ * */
+  functionName: string;
+  description?: string;
+  entry: string;
+  label?: string;
+  logLevel?: string;
+  logEvent?: string;
+  logRetention?: string;
+  memorySize?: string;
+  timeout?: string;
+  metricsNamespace?: string;
+
+}
+
+
 export class NodeJsPowerToolsFunction extends Construct {
   /** The new function */
   function: NodejsFunction;
@@ -44,70 +66,90 @@ export class NodeJsPowerToolsFunction extends Construct {
   /**
      * @param {Construct} scope
      * @param {string} id
-     * @param {CustomFunctionProps} props
+     * @param {PowerToolsProps } props
      */
 
-  constructor(scope: Construct, id: string, props: CustomFunctionProps) {
+  // constructor(scope: Construct, id: string, props: ICustomFunctionProps) {
+  constructor(scope: Construct, id: string, props: IPowerToolsProps ) {
     super(scope, id);
 
     const {
-      functionName, 
-      description, 
-      entry, 
+      functionName,
+      description,
+      entry,
       label = 'Function',
-      layers = [], 
-      environment = {},
-      powerToolsOptions = {}, 
-      functionProps = {},
+      //logLevel = 'INFO',
+      //logEvent = false,
+      logRetention = '30',
+      memorySize = '128',
+      timeout = '10',
+      // layers = [],
+      // environment = {},
+      // powerToolsOptions = {},
+    //  functionProps = {},
     } = props;
 
 
     // Set Defaults
-    const {
+    /*     const {
       logLevel = 'INFO',
       logEvent = false,
     } = powerToolsOptions;
-
+ */
+    /*
     const {
       logRetention = 30,
       memorySize = 128,
       timeout = 10,
     } = functionProps;
 
-    const metricNamespace = powerToolsOptions.metricsNamespace || 'DemoNamespace';
+  */
+
+
+    /*     const metricNamespace = powerToolsOptions.metricsNamespace || 'DemoNamespace';
+    const metricsSvcName = functionName.toUpperCase();
+    */
+
+    const metricNamespace = props.metricsNamespace || 'DemoNamespace';
     const metricsSvcName = functionName.toUpperCase();
 
-    const powertoolsEnv: PowerToolsEnvProps = {
-      POWERTOOLS_SERVICE_NAME: metricsSvcName,
-      POWERTOOLS_METRICS_NAMESPACE: metricNamespace,
-      LOG_LEVEL: logLevel,
-      POWERTOOLS_LOGGER_LOG_EVENT: (logEvent) ? 'true' : 'false',
-      POWERTOOLS_TRACER_CAPTURE_RESPONSE: (logLevel === 'DEBUG') ? 'true' : 'false',
+    //const powertoolsEnv: PowerToolsEnvProps = {
+    const powertoolsEnv = {
+      powertoolsServiceName: metricsSvcName,
+      powertoolsMetricsNamespace: metricNamespace,
+      //logLevel: logLevel,
+      // powertoolsLoggerLogEvent: (logEvent) ? 'true' : 'false',
+      // powertoolsTracerCaptureResponse: (logLevel === 'DEBUG') ? 'true' : 'false',
+      powertoolsTraceEnabled: 'true',
+      powertoolsTracerCaptureError: 'true',
+      powertoolsTracerCaptureHttpsRequests: 'true',
+      powertoolsLoggerSampleRate: '0',
     };
 
-    const toolsLayer = props.toolsLayer || new ToolsLayer(this, 'ToolsLayer', { layerVersionName: functionName }).layerVersion;
+
+    //const toolsLayer = props.toolsLayer || new ToolsLayer(this, 'ToolsLayer', { layerVersionName: functionName }).layerVersion;
 
     const fnc = new NodejsFunction(this, 'Fnc', {
       description,
       runtime: Runtime.NODEJS_16_X,
-      memorySize,
-      timeout: Duration.seconds(timeout),
+      memorySize: parseInt(memorySize),
+      timeout: Duration.seconds(parseInt(timeout)),
       tracing: Tracing.ACTIVE,
-      logRetention,
+      logRetention: parseInt(logRetention),
       layers: [
-        toolsLayer,
-        ...layers,
+        //props.toolsLayer,
+      //  ...layers,
       ],
-      bundling: {
+      /*       bundling: {
         sourceMap: true,
         externalModules: toolsModuleList,
-      },
+      }, */
       entry,
       environment: {
         NODE_OPTIONS: '--enable-source-maps',
-        FUNCTION_LABEL: label,
+        FunctionLabel: label,
         ...powertoolsEnv,
-        ...environment,
+        //...environment,
       },
     });
     this.function = fnc;
@@ -219,7 +261,7 @@ export class NodeJsPowerToolsFunction extends Construct {
       metrics: [durationMetricAvg],
       leftYAxis: {
         min: 0,
-        max: timeout * 1000,
+        max: parseInt(timeout) * 1000,
       },
       height: 6,
     });
@@ -228,7 +270,7 @@ export class NodeJsPowerToolsFunction extends Construct {
       metrics: [durationMetricMax],
       leftYAxis: {
         min: 0,
-        max: timeout * 1000,
+        max: parseInt(timeout) * 1000,
       },
       height: 6,
     });
@@ -237,7 +279,7 @@ export class NodeJsPowerToolsFunction extends Construct {
       metrics: [durationMetricMin],
       leftYAxis: {
         min: 0,
-        max: timeout * 1000,
+        max: parseInt(timeout) * 1000,
       },
       height: 6,
     });

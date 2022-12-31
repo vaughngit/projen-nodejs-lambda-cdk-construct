@@ -12,16 +12,16 @@ const logger = new Logger();
 const tracer = new Tracer();
 const metrics = new Metrics();
 
-// /** Event Props */
-// type EventProps = {
-//   reqcontext: {
-//     requestId: string;
-//   //  httpMethod: string;
-//   };
-//   correlationId: string;
-//   throwError?: boolean;
-//   idpToken: string;
-// };
+/** Event Props */
+type EventProps = {
+  reqcontext: {
+    requestId: string;
+  //  httpMethod: string;
+  };
+  correlationId: string;
+  throwError?: boolean;
+  idpToken: string;
+};
 
 
 /** Write Data Result */
@@ -34,18 +34,17 @@ type FunctionResult = {
 };
 //export const handler = async (event: EventProps, context: object): Promise<FunctionResult>  => {
 //const lambdaHandler = async (event: EventProps, context: object): Promise<FunctionResult> => {
-//const lambdaHandler = async (event: EventProps): Promise<FunctionResult> => {
-const lambdaHandler = async (event: any): Promise<FunctionResult> => {
+const lambdaHandler = async (event): Promise<FunctionResult> => {  
   //console.log("event object: ",event);
   //console.log("context object", context);
 
   // const { params, reqcontext } = event;
-  // const { correlationId, reqcontext } = event;
-  // const { requestId, httpMethod } = reqcontext;
-  // const { requestId } = reqcontext;
+  const { correlationId, reqcontext } = event; 
+ // const { requestId, httpMethod } = reqcontext;
+  const { requestId } = reqcontext;
   //const { correlationId = requestId } = params;
 
-  logger.info('reqcontext', { data: event.reqcontext });
+  logger.info('reqcontext', { data: reqcontext });
 
   let statusCode = 500;
   let errorMessage = 'Internal Handler Error';
@@ -56,13 +55,9 @@ const lambdaHandler = async (event: any): Promise<FunctionResult> => {
    * and will be searchable/filterable in the CloudWatch console.
    */
 
-  tracer.putAnnotation('correlationId', event.correlationId);
-  //logger.appendKeys({ correlationId });
-  logger.appendKeys( event.correlationId );
-  metrics.addMetadata('correlationId', event.correlationId);
-
-  const requestId = event.requestId;
-  const correlationId = event.correlationId;
+  tracer.putAnnotation('correlationId', correlationId);
+  logger.appendKeys({ correlationId });
+  metrics.addMetadata('correlationId', correlationId);
 
   try {
 
