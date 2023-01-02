@@ -4,6 +4,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'VaughnGit',
   authorAddress: 'alvin.vaughn@outlook.com',
   cdkVersion: '2.58.0',
+  //cdkVersionPinning: false, // see https://www.matthewbonig.com/2021/04/06/automating-construct-publishing/
   defaultReleaseBranch: 'main',
   name: 'projen-nodejs-lambda-cdk-construct',
   repositoryUrl: 'https://github.com/vaughngit/projen-nodejs-lambda-cdk-construct.git',
@@ -21,10 +22,21 @@ const project = new awscdk.AwsCdkConstructLibrary({
   ],
   deps: [
     //'vaughntech-nodejs-powertools-lambdalayer',
+  //  'esbuild'
   ], /* Runtime dependencies of this module. */
   devDeps: [
+    'esbuild',
   ], /* Build dependencies for this module. */
   //workflowContainerImage: 'jsii/superchain:1-buster-slim-node16',
+  eslint: true,
+  /*
+  dependabot: true,
+  dependabotOptions: {
+    autoMerge: true,
+    ignoreProjen: true,
+    scheduleInterval: DependabotScheduleInterval.WEEKLY,
+  },
+ */
   workflowNodeVersion: '16.19.0',
   autoApproveOptions: {
     allowedUsernames: ['github-bot', 'vaughngit', 'github-actions'],
@@ -73,5 +85,8 @@ project.gitpod.addVscodeExtensions(
   'AmazonWebServices.aws-toolkit-vscode',
 );
 
+// example to show how you can use your own esbuild task to bundle your Lambda function without using constructs like NodejsFunction
+//project.compileTask.exec('esbuild src/lambda-bundled/index.js --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/lambda-bundled/index.js');
+project.compileTask.exec('esbuild sourceCode/lambda-bundled/index.js --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/lambda-bundled/index.js');
 
 project.synth();

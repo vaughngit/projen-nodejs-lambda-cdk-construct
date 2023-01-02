@@ -2,39 +2,48 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
-### NodeJsPowerToolsFunction <a name="NodeJsPowerToolsFunction" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction"></a>
+### ConstructWithProperties <a name="ConstructWithProperties" id="projen-nodejs-lambda-cdk-construct.ConstructWithProperties"></a>
 
-#### Initializers <a name="Initializers" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.Initializer"></a>
+A simple CDK construct illustrating the differences in declaring construct properties with interfaces.
+
+#### Initializers <a name="Initializers" id="projen-nodejs-lambda-cdk-construct.ConstructWithProperties.Initializer"></a>
 
 ```typescript
-import { NodeJsPowerToolsFunction } from 'projen-nodejs-lambda-cdk-construct'
+import { ConstructWithProperties } from 'projen-nodejs-lambda-cdk-construct'
 
-new NodeJsPowerToolsFunction(scope: Construct, id: string, props: IPowerToolsProps)
+new ConstructWithProperties(parent: Construct, name: string, props: StructProperties, props2: IBehaviorProperties)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.Initializer.parameter.props">props</a></code> | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps">IPowerToolsProps</a></code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.ConstructWithProperties.Initializer.parameter.parent">parent</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.ConstructWithProperties.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.ConstructWithProperties.Initializer.parameter.props">props</a></code> | <code><a href="#projen-nodejs-lambda-cdk-construct.StructProperties">StructProperties</a></code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.ConstructWithProperties.Initializer.parameter.props2">props2</a></code> | <code><a href="#projen-nodejs-lambda-cdk-construct.IBehaviorProperties">IBehaviorProperties</a></code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.Initializer.parameter.scope"></a>
+##### `parent`<sup>Required</sup> <a name="parent" id="projen-nodejs-lambda-cdk-construct.ConstructWithProperties.Initializer.parameter.parent"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.Initializer.parameter.id"></a>
+##### `name`<sup>Required</sup> <a name="name" id="projen-nodejs-lambda-cdk-construct.ConstructWithProperties.Initializer.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="projen-nodejs-lambda-cdk-construct.ConstructWithProperties.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps">IPowerToolsProps</a>
+- *Type:* <a href="#projen-nodejs-lambda-cdk-construct.StructProperties">StructProperties</a>
+
+---
+
+##### `props2`<sup>Required</sup> <a name="props2" id="projen-nodejs-lambda-cdk-construct.ConstructWithProperties.Initializer.parameter.props2"></a>
+
+- *Type:* <a href="#projen-nodejs-lambda-cdk-construct.IBehaviorProperties">IBehaviorProperties</a>
 
 ---
 
@@ -42,11 +51,11 @@ new NodeJsPowerToolsFunction(scope: Construct, id: string, props: IPowerToolsPro
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.ConstructWithProperties.toString">toString</a></code> | Returns a string representation of this construct. |
 
 ---
 
-##### `toString` <a name="toString" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.toString"></a>
+##### `toString` <a name="toString" id="projen-nodejs-lambda-cdk-construct.ConstructWithProperties.toString"></a>
 
 ```typescript
 public toString(): string
@@ -58,21 +67,21 @@ Returns a string representation of this construct.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.ConstructWithProperties.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="projen-nodejs-lambda-cdk-construct.ConstructWithProperties.isConstruct"></a>
 
 ```typescript
-import { NodeJsPowerToolsFunction } from 'projen-nodejs-lambda-cdk-construct'
+import { ConstructWithProperties } from 'projen-nodejs-lambda-cdk-construct'
 
-NodeJsPowerToolsFunction.isConstruct(x: any)
+ConstructWithProperties.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
 
-###### `x`<sup>Required</sup> <a name="x" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="projen-nodejs-lambda-cdk-construct.ConstructWithProperties.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -84,14 +93,11 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.property.dashboardWidgets">dashboardWidgets</a></code> | <code>aws-cdk-lib.aws_cloudwatch.IWidget[]</code> | CloudWatch Widgets for Dashboard. |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.property.function">function</a></code> | <code>aws-cdk-lib.aws_lambda_nodejs.NodejsFunction</code> | The new function. |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.property.logGroup">logGroup</a></code> | <code>aws-cdk-lib.aws_logs.ILogGroup</code> | CloudWatch Log Group. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.ConstructWithProperties.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="projen-nodejs-lambda-cdk-construct.ConstructWithProperties.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -103,172 +109,164 @@ The tree node.
 
 ---
 
-##### `dashboardWidgets`<sup>Required</sup> <a name="dashboardWidgets" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.property.dashboardWidgets"></a>
+
+### LambdaConstruct <a name="LambdaConstruct" id="projen-nodejs-lambda-cdk-construct.LambdaConstruct"></a>
+
+A CDK construct to create Lambda functions.
+
+#### Initializers <a name="Initializers" id="projen-nodejs-lambda-cdk-construct.LambdaConstruct.Initializer"></a>
 
 ```typescript
-public readonly dashboardWidgets: IWidget[];
+import { LambdaConstruct } from 'projen-nodejs-lambda-cdk-construct'
+
+new LambdaConstruct(parent: Construct, name: string)
 ```
 
-- *Type:* aws-cdk-lib.aws_cloudwatch.IWidget[]
-
-CloudWatch Widgets for Dashboard.
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.LambdaConstruct.Initializer.parameter.parent">parent</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.LambdaConstruct.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `function`<sup>Required</sup> <a name="function" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.property.function"></a>
+##### `parent`<sup>Required</sup> <a name="parent" id="projen-nodejs-lambda-cdk-construct.LambdaConstruct.Initializer.parameter.parent"></a>
 
-```typescript
-public readonly function: NodejsFunction;
-```
-
-- *Type:* aws-cdk-lib.aws_lambda_nodejs.NodejsFunction
-
-The new function.
+- *Type:* constructs.Construct
 
 ---
 
-##### `logGroup`<sup>Required</sup> <a name="logGroup" id="projen-nodejs-lambda-cdk-construct.NodeJsPowerToolsFunction.property.logGroup"></a>
+##### `name`<sup>Required</sup> <a name="name" id="projen-nodejs-lambda-cdk-construct.LambdaConstruct.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.LambdaConstruct.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="projen-nodejs-lambda-cdk-construct.LambdaConstruct.toString"></a>
 
 ```typescript
-public readonly logGroup: ILogGroup;
+public toString(): string
 ```
 
-- *Type:* aws-cdk-lib.aws_logs.ILogGroup
+Returns a string representation of this construct.
 
-CloudWatch Log Group.
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.LambdaConstruct.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="projen-nodejs-lambda-cdk-construct.LambdaConstruct.isConstruct"></a>
+
+```typescript
+import { LambdaConstruct } from 'projen-nodejs-lambda-cdk-construct'
+
+LambdaConstruct.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="projen-nodejs-lambda-cdk-construct.LambdaConstruct.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.LambdaConstruct.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="projen-nodejs-lambda-cdk-construct.LambdaConstruct.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
 
 ---
 
 
+## Structs <a name="Structs" id="Structs"></a>
+
+### StructProperties <a name="StructProperties" id="projen-nodejs-lambda-cdk-construct.StructProperties"></a>
+
+This interface is translated into a _struct_ containing data.
+
+E.g. if translated to Java, an interface `StructProperties` is created containing a builder subclass to create an instance of the interface.
+
+> [https://aws.github.io/jsii/user-guides/lib-author/typescript-restrictions/#interfaces](https://aws.github.io/jsii/user-guides/lib-author/typescript-restrictions/#interfaces)
+
+#### Initializer <a name="Initializer" id="projen-nodejs-lambda-cdk-construct.StructProperties.Initializer"></a>
+
+```typescript
+import { StructProperties } from 'projen-nodejs-lambda-cdk-construct'
+
+const structProperties: StructProperties = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.StructProperties.property.myProp">myProp</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `myProp`<sup>Required</sup> <a name="myProp" id="projen-nodejs-lambda-cdk-construct.StructProperties.property.myProp"></a>
+
+```typescript
+public readonly myProp: string;
+```
+
+- *Type:* string
+
+---
 
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
 
-### IPowerToolsProps <a name="IPowerToolsProps" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps"></a>
+### IBehaviorProperties <a name="IBehaviorProperties" id="projen-nodejs-lambda-cdk-construct.IBehaviorProperties"></a>
 
-- *Implemented By:* <a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps">IPowerToolsProps</a>
+- *Implemented By:* <a href="#projen-nodejs-lambda-cdk-construct.IBehaviorProperties">IBehaviorProperties</a>
 
-Creates a Lambda function from the Typescript source.
+This is a _behavioral interface_ identified by `I` in its name.
 
-Includes PowerTools logging option settings.
+It will be translated to a "regular" interface which needs to be implemented.
+You can also use methods here, e.g. `doSth(): void;`.
+
+> [https://aws.github.io/jsii/user-guides/lib-author/typescript-restrictions/#interfaces](https://aws.github.io/jsii/user-guides/lib-author/typescript-restrictions/#interfaces)
 
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.entry">entry</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.functionName">functionName</a></code> | <code>string</code> | Debug log sampling rate. |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.description">description</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.label">label</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.logEvent">logEvent</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.logLevel">logLevel</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.logRetention">logRetention</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.memorySize">memorySize</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.metricsNamespace">metricsNamespace</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.timeout">timeout</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IBehaviorProperties.property.otherProp">otherProp</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `entry`<sup>Required</sup> <a name="entry" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.entry"></a>
+##### `otherProp`<sup>Required</sup> <a name="otherProp" id="projen-nodejs-lambda-cdk-construct.IBehaviorProperties.property.otherProp"></a>
 
 ```typescript
-public readonly entry: string;
-```
-
-- *Type:* string
-
----
-
-##### `functionName`<sup>Required</sup> <a name="functionName" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.functionName"></a>
-
-```typescript
-public readonly functionName: string;
-```
-
-- *Type:* string
-- *Default:* 'testfunction'
-
-Debug log sampling rate.
-
-Zero means all events.
-
----
-
-##### `description`<sup>Optional</sup> <a name="description" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.description"></a>
-
-```typescript
-public readonly description: string;
-```
-
-- *Type:* string
-
----
-
-##### `label`<sup>Optional</sup> <a name="label" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.label"></a>
-
-```typescript
-public readonly label: string;
-```
-
-- *Type:* string
-
----
-
-##### `logEvent`<sup>Optional</sup> <a name="logEvent" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.logEvent"></a>
-
-```typescript
-public readonly logEvent: string;
-```
-
-- *Type:* string
-
----
-
-##### `logLevel`<sup>Optional</sup> <a name="logLevel" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.logLevel"></a>
-
-```typescript
-public readonly logLevel: string;
-```
-
-- *Type:* string
-
----
-
-##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.logRetention"></a>
-
-```typescript
-public readonly logRetention: string;
-```
-
-- *Type:* string
-
----
-
-##### `memorySize`<sup>Optional</sup> <a name="memorySize" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.memorySize"></a>
-
-```typescript
-public readonly memorySize: string;
-```
-
-- *Type:* string
-
----
-
-##### `metricsNamespace`<sup>Optional</sup> <a name="metricsNamespace" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.metricsNamespace"></a>
-
-```typescript
-public readonly metricsNamespace: string;
-```
-
-- *Type:* string
-
----
-
-##### `timeout`<sup>Optional</sup> <a name="timeout" id="projen-nodejs-lambda-cdk-construct.IPowerToolsProps.property.timeout"></a>
-
-```typescript
-public readonly timeout: string;
+public readonly otherProp: string;
 ```
 
 - *Type:* string
