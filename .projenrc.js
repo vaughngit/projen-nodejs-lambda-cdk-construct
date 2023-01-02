@@ -21,13 +21,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   ],
   deps: [
     //'vaughntech-nodejs-powertools-lambdalayer',
-
-
   ], /* Runtime dependencies of this module. */
   devDeps: [
   ], /* Build dependencies for this module. */
   workflowContainerImage: 'jsii/superchain:1-buster-slim-node16',
-  workflowNodeVersion: '18.12.1',
+  workflowNodeVersion: '16.19.0',
   autoApproveOptions: {
     allowedUsernames: ['github-bot', 'vaughngit', 'github-actions'],
   },
