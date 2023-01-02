@@ -45,7 +45,7 @@ jobs:
           cat .repo.patch
           exit 1
     container:
-      image: jsii/superchain:1-buster-slim-node16
+      image: jsii/superchain:1-buster-slim-node14
   self-mutation:
     needs: build
     runs-on: ubuntu-latest
