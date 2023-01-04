@@ -1,4 +1,4 @@
-//import { Construct } from '@aws-cdk/core';
+import { CfnOutput } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
 /**
@@ -27,15 +27,38 @@ export interface IBehaviorProperties {
  * A simple CDK construct illustrating the differences in declaring construct properties with interfaces.
  */
 export class ConstructWithProperties extends Construct {
+
+  /**
+ * the will print out via cfnout
+ * @default 'nothing'
+ */
+  protected firstPropOut!: string;
+  protected secondPropOut!: string;
+
   constructor(parent: Construct, name: string, props: StructProperties, props2: IBehaviorProperties) {
     super(parent, name);
 
+
     if (props.myProp === 'foo') {
+      this.firstPropOut = 'Hello';
       console.log('Hello');
     }
 
     if (props2.otherProp === 'bar') {
+      this.secondPropOut = 'World';
       console.log('World');
     }
+
+    new CfnOutput(this, 'firstProp', {
+      value: this.firstPropOut,
+      description: 'The name of Property',
+      // exportName: 'avatars',
+    });
+
+    new CfnOutput(this, 'secondProp', {
+      value: this.secondPropOut,
+      description: 'The name of Property',
+      // exportName: 'avatars',
+    });
   }
 }

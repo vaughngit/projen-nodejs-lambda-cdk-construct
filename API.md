@@ -110,6 +110,107 @@ The tree node.
 ---
 
 
+### InlineLambdaConstruct <a name="InlineLambdaConstruct" id="projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct"></a>
+
+A CDK construct to create Lambda functions.
+
+#### Initializers <a name="Initializers" id="projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.Initializer"></a>
+
+```typescript
+import { InlineLambdaConstruct } from 'projen-nodejs-lambda-cdk-construct'
+
+new InlineLambdaConstruct(parent: Construct, name: string, props: IinlineLambdaProperties)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.Initializer.parameter.parent">parent</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.Initializer.parameter.props">props</a></code> | <code><a href="#projen-nodejs-lambda-cdk-construct.IinlineLambdaProperties">IinlineLambdaProperties</a></code> | *No description.* |
+
+---
+
+##### `parent`<sup>Required</sup> <a name="parent" id="projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.Initializer.parameter.parent"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#projen-nodejs-lambda-cdk-construct.IinlineLambdaProperties">IinlineLambdaProperties</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.isConstruct"></a>
+
+```typescript
+import { InlineLambdaConstruct } from 'projen-nodejs-lambda-cdk-construct'
+
+InlineLambdaConstruct.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="projen-nodejs-lambda-cdk-construct.InlineLambdaConstruct.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+
 ### LambdaConstruct <a name="LambdaConstruct" id="projen-nodejs-lambda-cdk-construct.LambdaConstruct"></a>
 
 A CDK construct to create Lambda functions.
@@ -205,6 +306,40 @@ The tree node.
 
 
 ## Structs <a name="Structs" id="Structs"></a>
+
+### IinlineLambdaProperties <a name="IinlineLambdaProperties" id="projen-nodejs-lambda-cdk-construct.IinlineLambdaProperties"></a>
+
+This is a IinlineLambdaPropeties identified by `I` in its name.
+
+It will be translated to a "regular" interface which needs to be implemented.
+
+> [https://aws.github.io/jsii/user-guides/lib-author/typescript-restrictions/#interfaces](https://aws.github.io/jsii/user-guides/lib-author/typescript-restrictions/#interfaces)
+
+#### Initializer <a name="Initializer" id="projen-nodejs-lambda-cdk-construct.IinlineLambdaProperties.Initializer"></a>
+
+```typescript
+import { IinlineLambdaProperties } from 'projen-nodejs-lambda-cdk-construct'
+
+const iinlineLambdaProperties: IinlineLambdaProperties = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IinlineLambdaProperties.property.inlineCode">inlineCode</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `inlineCode`<sup>Required</sup> <a name="inlineCode" id="projen-nodejs-lambda-cdk-construct.IinlineLambdaProperties.property.inlineCode"></a>
+
+```typescript
+public readonly inlineCode: string;
+```
+
+- *Type:* string
+
+---
 
 ### StructProperties <a name="StructProperties" id="projen-nodejs-lambda-cdk-construct.StructProperties"></a>
 
