@@ -305,6 +305,107 @@ The tree node.
 ---
 
 
+### PowerToolsLambdaConstruct <a name="PowerToolsLambdaConstruct" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct"></a>
+
+A CDK construct to create Lambda functions.
+
+#### Initializers <a name="Initializers" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer"></a>
+
+```typescript
+import { PowerToolsLambdaConstruct } from 'projen-nodejs-lambda-cdk-construct'
+
+new PowerToolsLambdaConstruct(parent: Construct, name: string, props: IPowerToolsLambdaProperties)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.parent">parent</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.props">props</a></code> | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties">IPowerToolsLambdaProperties</a></code> | *No description.* |
+
+---
+
+##### `parent`<sup>Required</sup> <a name="parent" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.parent"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties">IPowerToolsLambdaProperties</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.isConstruct"></a>
+
+```typescript
+import { PowerToolsLambdaConstruct } from 'projen-nodejs-lambda-cdk-construct'
+
+PowerToolsLambdaConstruct.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+
 ## Structs <a name="Structs" id="Structs"></a>
 
 ### IinlineLambdaProperties <a name="IinlineLambdaProperties" id="projen-nodejs-lambda-cdk-construct.IinlineLambdaProperties"></a>
@@ -402,6 +503,35 @@ You can also use methods here, e.g. `doSth(): void;`.
 
 ```typescript
 public readonly otherProp: string;
+```
+
+- *Type:* string
+
+---
+
+### IPowerToolsLambdaProperties <a name="IPowerToolsLambdaProperties" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties"></a>
+
+- *Implemented By:* <a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties">IPowerToolsLambdaProperties</a>
+
+This is a IinlineLambdaPropeties identified by `I` in its name.
+
+It will be translated to a "regular" interface which needs to be implemented.
+
+> [https://aws.github.io/jsii/user-guides/lib-author/typescript-restrictions/#interfaces](https://aws.github.io/jsii/user-guides/lib-author/typescript-restrictions/#interfaces)
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.sourceCodedirPath">sourceCodedirPath</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `sourceCodedirPath`<sup>Required</sup> <a name="sourceCodedirPath" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.sourceCodedirPath"></a>
+
+```typescript
+public readonly sourceCodedirPath: string;
 ```
 
 - *Type:* string

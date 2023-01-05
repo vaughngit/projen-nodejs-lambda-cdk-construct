@@ -1,6 +1,6 @@
 import { App, Stack } from 'aws-cdk-lib';
 //import { BucketEncryption } from 'aws-cdk-lib/aws-s3';
-import { ConstructWithProperties } from './index';
+import { PowerToolsLambdaConstruct } from './index';
 
 const aws_region = 'us-east-2';
 const solution = 'testingconstruct';
@@ -18,7 +18,7 @@ export class IntegTesting {
 
 
     const app = new App();
-    const stack = new Stack(app, 'IntegratedTestStack', {
+    const stack = new Stack(app, 'IntegratedPowerToolsTestStack', {
       env,
       tags: {
         solution,
@@ -27,9 +27,11 @@ export class IntegTesting {
       },
     });
 
-    new ConstructWithProperties(stack, 'integrated-construct-test',
-      { myProp: 'foo' }, { otherProp: 'bar' },
-    );
+
+    //inline lambda function integration
+    new PowerToolsLambdaConstruct(stack, 'PowerToolsLambdaConstruct', {
+      sourceCodedirPath: '../sourceCode/lambda-js',
+    });
 
 
     this.stack = [stack];

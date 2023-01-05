@@ -1,7 +1,12 @@
 // Add any kind of imports here (or use require)
 // -> esbuild will take care of bundling everything into one file
 
-exports.handler = (event) => {
+export const handler = async(event) => {
+  // TODO implement
   console.log('Event: ', event);
-  return {};
+  const response = {
+      statusCode: 200,
+      body: JSON.stringify('Hello from Lambda!'),
+  };
+  return response;
 };

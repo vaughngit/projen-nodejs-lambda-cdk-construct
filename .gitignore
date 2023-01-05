@@ -53,3 +53,6 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+/assets/
+!/src/integ.inline-function.ts
+!/src/integ.powertools-function.ts

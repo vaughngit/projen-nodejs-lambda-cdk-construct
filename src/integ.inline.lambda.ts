@@ -1,6 +1,6 @@
 import { App, Stack } from 'aws-cdk-lib';
 //import { BucketEncryption } from 'aws-cdk-lib/aws-s3';
-import { ConstructWithProperties } from './index';
+import { InlineLambdaConstruct } from './index';
 
 const aws_region = 'us-east-2';
 const solution = 'testingconstruct';
@@ -18,7 +18,7 @@ export class IntegTesting {
 
 
     const app = new App();
-    const stack = new Stack(app, 'IntegratedTestStack', {
+    const stack = new Stack(app, 'IntegratedInlineFunctionTestStack', {
       env,
       tags: {
         solution,
@@ -27,9 +27,10 @@ export class IntegTesting {
       },
     });
 
-    new ConstructWithProperties(stack, 'integrated-construct-test',
-      { myProp: 'foo' }, { otherProp: 'bar' },
-    );
+    //inline lambda function integration
+    new InlineLambdaConstruct(stack, 'InlineLambdaConstruct', {
+      inlineCode: 'exports.handler = function (e, ctx, cb) { console.log("Event: ", e); cb(); };',
+    });
 
 
     this.stack = [stack];

@@ -7,6 +7,11 @@
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
+    "bundle": "npx projen bundle",
+    "bundle:integ.inline.lambda": "npx projen bundle:integ.inline.lambda",
+    "bundle:integ.inline.lambda:watch": "npx projen bundle:integ.inline.lambda:watch",
+    "bundle:integ.powertools.lambda": "npx projen bundle:integ.powertools.lambda",
+    "bundle:integ.powertools.lambda:watch": "npx projen bundle:integ.powertools.lambda:watch",
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
     "compile": "npx projen compile",

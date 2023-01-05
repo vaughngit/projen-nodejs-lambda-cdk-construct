@@ -146,7 +146,9 @@
       {
         "devDependencies": [
           "**/test/**",
-          "**/build-tools/**"
+          "**/build-tools/**",
+          "src/integ.inline.lambda.ts",
+          "src/integ.powertools.lambda.ts"
         ],
         "optionalDependencies": false,
         "peerDependencies": true
