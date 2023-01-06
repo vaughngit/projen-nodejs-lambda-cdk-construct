@@ -30,7 +30,7 @@ export class LambdaConstruct extends Construct {
     // a function which is written in TypeScript inside the src/lambda folder
     new Function(this, 'JsFunction2', {
       runtime: Runtime.NODEJS_16_X,
-      code: Code.fromAsset(path.join(__dirname, '../sourceCode/lambda')),
+      code: Code.fromAsset(path.join(__dirname, '../sourceCode/lambda-ts')),
       handler: 'index.handler',
     });
 

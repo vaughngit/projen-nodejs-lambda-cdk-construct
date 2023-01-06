@@ -4,6 +4,18 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'VaughnGit',
   authorAddress: 'alvin.vaughn@outlook.com',
   cdkVersion: '2.58.0',
+  //lambdaAutoDiscover: false,
+  lambdaOptions: {
+    // target node.js runtime
+    runtime: awscdk.LambdaRuntime.NODEJS_16_X,
+    bundlingOptions: {
+      // list of node modules to exclude from the bundle
+      externals: ['aws-sdk'],
+      sourcemap: true,
+    },
+
+  },
+
   //cdkVersionPinning: false, // see https://www.matthewbonig.com/2021/04/06/automating-construct-publishing/
   defaultReleaseBranch: 'main',
   name: 'projen-nodejs-lambda-cdk-construct',
@@ -60,10 +72,27 @@ const project = new awscdk.AwsCdkConstructLibrary({
   gitpod: true,
 });
 
+
+// const p = new awscdk.AwsCdkTypeScriptApp({
+//   lambdaAutoDiscover: false,
+// });
+
+//  new awscdk.LambdaFunction(project, {
+//    entrypoint: 'sourceCode/lambda-ts/index.lambda.ts', // .lambda.ts extension is still required
+//  });
+
+
+// new awscdk.LambdaFunction(project, {
+//   entrypoint:  'sourceCode/lambda-ts/index.lambda.ts',
+//   runtime: awscdk.LambdaRuntime.NODEJS_14_X,
+//   //cdkDeps: new awscdk.AwsCdkDeps(this)
+// })
+
 project.gitpod.addCustomTask({
   init: 'yarn install && yarn run build',
   command: 'yarn run watch',
 });
+
 
 project.gitpod.addCustomTask({
   name: 'ConfigAlias',
@@ -87,6 +116,8 @@ project.gitpod.addVscodeExtensions(
 
 // example to show how you can use your own esbuild task to bundle your Lambda function without using constructs like NodejsFunction
 //project.compileTask.exec('esbuild src/lambda-bundled/index.js --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/lambda-bundled/index.js');
-project.compileTask.exec('esbuild sourceCode/lambda-bundled/index.js --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/lambda-bundled/index.js');
+//project.compileTask.exec('esbuild sourceCode/lambda-bundled/index.js --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/lambda-bundled/index.js');
+//project.compileTask.exec('esbuild src/PowerToolsLambdaConstruct.ts --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/PowerToolsLambdaConstruct.js');
+project.compileTask.exec('esbuild sourceCode/lambda-ts/index.ts --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/lambda-ts/index.js');
 
 project.synth();

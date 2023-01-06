@@ -10,7 +10,7 @@ test('sourceCode function test', () => {
   const stack = new Stack(app, 'TestStack');
 
   new PowerToolsLambdaConstruct(stack, 'PowerToolsLambdaConstruct', {
-    sourceCodedirPath: '../sourceCode/lambda',
+    sourceCodedirPath: '../sourceCode/lambda-js',
   });
 
   const template = Template.fromStack(stack);

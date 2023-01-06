@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/lambda-ts/index.lambda.ts"],
+  "sourcesContent": ["export const handler = async(event: any, test: any) => {\n  // TODO implement\n  console.log('Event: ', event);\n\n  console.log(test);\n  const response = {\n    statusCode: 200,\n    body: JSON.stringify('Hello from Lambda!'),\n  };\n  return response;\n};\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAO,IAAM,UAAU,OAAM,OAAY,SAAc;AAErD,UAAQ,IAAI,WAAW,KAAK;AAE5B,UAAQ,IAAI,IAAI;AAChB,QAAM,WAAW;AAAA,IACf,YAAY;AAAA,IACZ,MAAM,KAAK,UAAU,oBAAoB;AAAA,EAC3C;AACA,SAAO;AACT;",
+  "names": []
+}

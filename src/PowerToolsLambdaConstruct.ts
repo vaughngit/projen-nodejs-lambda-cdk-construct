@@ -1,5 +1,6 @@
 import * as path from 'path';
 import { Duration } from 'aws-cdk-lib';
+//import { Code, Function, Runtime, RuntimeFamily } from 'aws-cdk-lib/aws-lambda';
 import { Code, Function, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 
@@ -17,6 +18,35 @@ export interface IPowerToolsLambdaProperties {
 /**
  * A CDK construct to create Lambda functions.
  */
+/* export class PowerToolsLambdaConstruct extends Function {
+  constructor(parent: Construct, name: string, props: IPowerToolsLambdaProperties) {
+
+    if (!props.sourceCodedirPath) {
+      throw 'Must provide path to code from root!';
+    }
+
+    if (!path.resolve(__dirname, props.sourceCodedirPath)) {
+      throw 'Path does not resolve via resolve!';
+    }
+
+    if (!path.join(__dirname, props.sourceCodedirPath)) {
+      throw 'Path does not resolve via join!';
+    }
+
+    super(parent, name, {
+      description: 'src/lambda-ts/index.lambda.ts',
+      ...props,
+      runtime: new Runtime('nodejs16.x', RuntimeFamily.NODEJS),
+      handler: 'index.handler',
+      code: Code.fromAsset(path.join(__dirname, props.sourceCodedirPath)),
+      timeout: Duration.seconds(10),
+    });
+
+
+  }
+}
+ */
+
 export class PowerToolsLambdaConstruct extends Construct {
   constructor(parent: Construct, name: string, props: IPowerToolsLambdaProperties) {
     super(parent, name);

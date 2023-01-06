@@ -9,3 +9,6 @@
     https://subaud.io/blog/using-a-typescript-lambda-as-a-cdk-construct-custom-resource
     https://subaud.io/blog/building-cdk-custom-resource-constructs-with-projen-and-typescript
     
+
+## Login via cli 
+    aws sso login --no-browser 
