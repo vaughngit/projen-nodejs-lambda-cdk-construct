@@ -31,7 +31,9 @@ export class IntegTesting {
     //new IndexFunction(stack, 'PowerToolsLambdaConstruct-ts');
     //lambda function integration
     new PowerToolsLambdaConstruct(stack, 'PowerToolsLambdaConstruct-ts-Test', {
+      functionName: 'lambdatools',
       sourceCodedirPath: '../lib/lambda-ts',
+      timeout: 50,
     });
 
 

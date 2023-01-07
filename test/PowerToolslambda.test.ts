@@ -14,7 +14,7 @@ test('sourceCode function test', () => {
   });
 
   const template = Template.fromStack(stack);
-  template.resourceCountIs('AWS::Lambda::Function', 1); // delete adds additional customer resource
+  template.resourceCountIs('AWS::Lambda::Function', 1);
 });
 
 

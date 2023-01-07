@@ -307,8 +307,6 @@ The tree node.
 
 ### PowerToolsLambdaConstruct <a name="PowerToolsLambdaConstruct" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct"></a>
 
-A CDK construct to create Lambda functions.
-
 #### Initializers <a name="Initializers" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer"></a>
 
 ```typescript
@@ -525,6 +523,14 @@ It will be translated to a "regular" interface which needs to be implemented.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.sourceCodedirPath">sourceCodedirPath</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.description">description</a></code> | <code>string</code> | Function description. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.functionName">functionName</a></code> | <code>string</code> | Metrics Namespace. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.logEvent">logEvent</a></code> | <code>boolean</code> | Log the event. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.logLevel">logLevel</a></code> | <code>string</code> | Log level. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.logRetention">logRetention</a></code> | <code>string</code> | Function log retention in days. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.memorySize">memorySize</a></code> | <code>number</code> | Function memory size. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.metricsNamespace">metricsNamespace</a></code> | <code>string</code> | Metrics Namespace. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.timeout">timeout</a></code> | <code>number</code> | Function timeout in seconds. |
 
 ---
 
@@ -535,6 +541,109 @@ public readonly sourceCodedirPath: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+Function description.
+
+---
+
+##### `functionName`<sup>Optional</sup> <a name="functionName" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.functionName"></a>
+
+```typescript
+public readonly functionName: string;
+```
+
+- *Type:* string
+- *Default:* : 'DemoFunction
+
+Metrics Namespace.
+
+---
+
+##### `logEvent`<sup>Optional</sup> <a name="logEvent" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.logEvent"></a>
+
+```typescript
+public readonly logEvent: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Log the event.
+
+---
+
+##### `logLevel`<sup>Optional</sup> <a name="logLevel" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.logLevel"></a>
+
+```typescript
+public readonly logLevel: string;
+```
+
+- *Type:* string
+- *Default:* 'INFO'
+
+Log level.
+
+---
+
+##### `logRetention`<sup>Optional</sup> <a name="logRetention" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.logRetention"></a>
+
+```typescript
+public readonly logRetention: string;
+```
+
+- *Type:* string
+- *Default:* 30
+
+Function log retention in days.
+
+---
+
+##### `memorySize`<sup>Optional</sup> <a name="memorySize" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.memorySize"></a>
+
+```typescript
+public readonly memorySize: number;
+```
+
+- *Type:* number
+- *Default:* 128
+
+Function memory size.
+
+---
+
+##### `metricsNamespace`<sup>Optional</sup> <a name="metricsNamespace" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.metricsNamespace"></a>
+
+```typescript
+public readonly metricsNamespace: string;
+```
+
+- *Type:* string
+- *Default:* : 'DemoNamespace
+
+Metrics Namespace.
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.timeout"></a>
+
+```typescript
+public readonly timeout: number;
+```
+
+- *Type:* number
+- *Default:* 10
+
+Function timeout in seconds.
 
 ---
 

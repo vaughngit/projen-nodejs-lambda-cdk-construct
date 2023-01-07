@@ -53,8 +53,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   autoApproveOptions: {
     allowedUsernames: ['github-bot', 'vaughngit', 'github-actions'],
   },
-  gitignore: ['cdk.out'],
-  npmignore: ['cdk.out', 'examples', 'gitpod_scripts'],
+  //gitignore: ['cdk.out'],
+  //npmignore: ['cdk.out', 'examples', 'gitpod_scripts'],
   //publishDryRun: true,
   releaseToNpm: false,
 
@@ -72,21 +72,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   gitpod: true,
 });
 
+project.gitignore.addPatterns('cdk.out');
+project.npmignore.addPatterns('cdk.out', 'examples', 'gitpod_scripts');
 
-// const p = new awscdk.AwsCdkTypeScriptApp({
-//   lambdaAutoDiscover: false,
-// });
-
-//  new awscdk.LambdaFunction(project, {
-//    entrypoint: 'sourceCode/lambda-ts/index.lambda.ts', // .lambda.ts extension is still required
-//  });
-
-
-// new awscdk.LambdaFunction(project, {
-//   entrypoint:  'sourceCode/lambda-ts/index.lambda.ts',
-//   runtime: awscdk.LambdaRuntime.NODEJS_14_X,
-//   //cdkDeps: new awscdk.AwsCdkDeps(this)
-// })
 
 project.gitpod.addCustomTask({
   init: 'yarn install && yarn run build',

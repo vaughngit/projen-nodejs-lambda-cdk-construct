@@ -1,8 +1,10 @@
 
 
 ## Testing: 
-    cdk synth --app='./lib/integ.default.js'
-    cdk deploy --app='./lib/integ.default.js'
+    npx cdk synth --app='./lib/integ.default.js'
+    npx cdk deploy --app='./lib/integ.default.js'
+    npx cdk deploy --app='./lib/integ.powertools-ts.js'
+    npx cdk destroy --app='./lib/integ.powertools-ts.js'
     Once the build is successful its ready to deploy locally.
 
 ## typescript functions follow up reading: 
