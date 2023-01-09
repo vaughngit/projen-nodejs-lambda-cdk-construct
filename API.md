@@ -524,13 +524,17 @@ It will be translated to a "regular" interface which needs to be implemented.
 | --- | --- | --- |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.sourceCodedirPath">sourceCodedirPath</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.description">description</a></code> | <code>string</code> | Function description. |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.functionName">functionName</a></code> | <code>string</code> | Metrics Namespace. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.environment">environment</a></code> | <code>{[ key: string ]: string}</code> | Env variables. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.functionName">functionName</a></code> | <code>string</code> | Function Name. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.layers">layers</a></code> | <code>aws-cdk-lib.aws_lambda.LayerVersion[]</code> | Add other layers if required. |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.logEvent">logEvent</a></code> | <code>boolean</code> | Log the event. |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.logLevel">logLevel</a></code> | <code>string</code> | Log level. |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.logRetention">logRetention</a></code> | <code>string</code> | Function log retention in days. |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.memorySize">memorySize</a></code> | <code>number</code> | Function memory size. |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.metricsNamespace">metricsNamespace</a></code> | <code>string</code> | Metrics Namespace. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.solutionName">solutionName</a></code> | <code>string</code> | App or Solution Name. |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.timeout">timeout</a></code> | <code>number</code> | Function timeout in seconds. |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.toolsLayer">toolsLayer</a></code> | <code>aws-cdk-lib.aws_lambda.LayerVersion</code> | Layer containing PowerTools modules. |
 
 ---
 
@@ -556,6 +560,20 @@ Function description.
 
 ---
 
+##### `environment`<sup>Optional</sup> <a name="environment" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.environment"></a>
+
+```typescript
+public readonly environment: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Env variables.
+
+PowerTools and env name are included by default.
+
+---
+
 ##### `functionName`<sup>Optional</sup> <a name="functionName" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.functionName"></a>
 
 ```typescript
@@ -565,7 +583,19 @@ public readonly functionName: string;
 - *Type:* string
 - *Default:* : 'DemoFunction
 
-Metrics Namespace.
+Function Name.
+
+---
+
+##### `layers`<sup>Optional</sup> <a name="layers" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.layers"></a>
+
+```typescript
+public readonly layers: LayerVersion[];
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.LayerVersion[]
+
+Add other layers if required.
 
 ---
 
@@ -634,6 +664,19 @@ Metrics Namespace.
 
 ---
 
+##### `solutionName`<sup>Optional</sup> <a name="solutionName" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.solutionName"></a>
+
+```typescript
+public readonly solutionName: string;
+```
+
+- *Type:* string
+- *Default:* : 'DemoSolution
+
+App or Solution Name.
+
+---
+
 ##### `timeout`<sup>Optional</sup> <a name="timeout" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.timeout"></a>
 
 ```typescript
@@ -644,6 +687,20 @@ public readonly timeout: number;
 - *Default:* 10
 
 Function timeout in seconds.
+
+---
+
+##### `toolsLayer`<sup>Optional</sup> <a name="toolsLayer" id="projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties.property.toolsLayer"></a>
+
+```typescript
+public readonly toolsLayer: LayerVersion;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.LayerVersion
+
+Layer containing PowerTools modules.
+
+If not included a layer will be created.
 
 ---
 

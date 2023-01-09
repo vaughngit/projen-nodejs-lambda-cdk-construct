@@ -1,10 +1,10 @@
 import * as path from 'path';
 import { Duration } from 'aws-cdk-lib';
 //import { Code, Function, Runtime, RuntimeFamily } from 'aws-cdk-lib/aws-lambda';
-import { Code, Function, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
+import { Code, Function, LayerVersion, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
-import { LogLevel } from './types';
-
+import { LogLevel } from './props';
+//import { logger, tracer, metrics } from "./powertools"
 
 /**
  * This is a IinlineLambdaPropeties identified by `I` in its name.
@@ -16,7 +16,12 @@ export interface IPowerToolsLambdaProperties {
   // using 'readonly' here will not create a setter method for this property but only a getter; not using 'readonly' will produce a setter + getter
   readonly sourceCodedirPath: string;
   /**
-   * Metrics Namespace.
+   * App or Solution Name
+   * @default: 'DemoSolution
+   */
+  solutionName?: string;
+  /**
+   * Function Name.
    * @default: 'DemoFunction
    */
   functionName?: string;
@@ -53,6 +58,21 @@ export interface IPowerToolsLambdaProperties {
      * @default false
      */
   logEvent?: boolean;
+  /**
+     * Layer containing PowerTools modules.
+     * If not included a layer will be created.
+     */
+  toolsLayer?: LayerVersion;
+
+  /** Add other layers if required */
+  layers?: LayerVersion[];
+  /**
+     * Env variables.
+     * PowerTools and env name are included by default.
+     */
+  environment?: {
+    [key: string]: string;
+  };
 }
 
 
@@ -60,7 +80,10 @@ export class PowerToolsLambdaConstruct extends Construct {
   constructor(parent: Construct, name: string, props: IPowerToolsLambdaProperties) {
     super(parent, name);
 
+    const powertoolsLayer = LayerVersion.fromLayerVersionArn(this, 'powertoolsll', 'arn:aws:lambda:{region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:6');
+
     const {
+      solutionName,
       functionName='testfunction',
       description,
       memorySize,
@@ -69,6 +92,8 @@ export class PowerToolsLambdaConstruct extends Construct {
       metricsNamespace,
       logLevel,
       logEvent,
+      environment = {},
+      layers = [],
     } = props;
 
 
@@ -84,13 +109,14 @@ export class PowerToolsLambdaConstruct extends Construct {
       throw 'Path does not resolve via join!';
     }
 
-    const metricNamespace = metricsNamespace || 'DemoNamespace';
-    const metricsSvcName = functionName.toUpperCase();
+    const metricsSvcName = solutionName || 'DemoSolution';
+    const metricNamespace = metricsNamespace || functionName.toUpperCase();
+
 
     const powertoolsEnv = {
       POWERTOOLS_SERVICE_NAME: metricsSvcName,
       POWERTOOLS_METRICS_NAMESPACE: metricNamespace,
-      LOG_LEVEL: logLevel!,
+      LOG_LEVEL: logLevel || 'INFO',
       POWERTOOLS_LOGGER_LOG_EVENT: (logEvent) ? 'true' : 'false',
       POWERTOOLS_TRACER_CAPTURE_RESPONSE: (logLevel === 'DEBUG') ? 'true' : 'false',
     };
@@ -110,8 +136,13 @@ export class PowerToolsLambdaConstruct extends Construct {
         NODE_OPTIONS: '--enable-source-maps',
         // FUNCTION_LABEL: label,
         ...powertoolsEnv,
-        // ...environment,
+        ...environment,
       },
+      layers: [
+        //toolsLayer,
+        powertoolsLayer,
+        ...layers,
+      ],
     });
 
 
