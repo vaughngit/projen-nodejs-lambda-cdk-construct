@@ -1,8 +1,11 @@
 
+## Login via cli 
+    aws sso login --no-browser 
 
 ## Testing: 
     npx cdk synth --app='./lib/integ.default.js'
     npx cdk deploy --app='./lib/integ.default.js'
+    npx cdk synth --app='./lib/integ.powertools-ts.js'
     npx cdk deploy --app='./lib/integ.powertools-ts.js'
     npx cdk destroy --app='./lib/integ.powertools-ts.js'
     Once the build is successful its ready to deploy locally.
@@ -12,8 +15,6 @@
     https://subaud.io/blog/building-cdk-custom-resource-constructs-with-projen-and-typescript
     
 
-## Login via cli 
-    aws sso login --no-browser 
 
 ## PowerTools:
     Simplifying serverless best practices with Lambda Powertools: https://aws.amazon.com/blogs/opensource/simplifying-serverless-best-practices-with-lambda-powertools/ 

@@ -3,7 +3,7 @@ const { awscdk } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'VaughnGit',
   authorAddress: 'alvin.vaughn@outlook.com',
-  cdkVersion: '2.58.0',
+  cdkVersion: '2.59.0',
   //lambdaAutoDiscover: false,
   lambdaOptions: {
     // target node.js runtime
