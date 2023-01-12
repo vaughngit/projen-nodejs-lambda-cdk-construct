@@ -32,7 +32,7 @@ export class IntegTesting {
     new PowerToolsLambdaConstruct(stack, 'PowerToolsLambdaConstruct-ts-Test', {
       solutionName: 'projenIntegTesting',
       description: 'Integration Test of Lambda Powertools construct',
-      functionName: 'lambdatools',
+      functionName: 'IntegrationTestlambdatools',
       sourceCodedirPath: '../lib/lambda-ts',
       timeout: 50,
     });
