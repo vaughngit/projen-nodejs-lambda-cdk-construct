@@ -7,11 +7,11 @@ const logger = new Logger();
 const tracer = new Tracer();
 const metrics = new Metrics();
 
-export const handler = async(event) => {
+export const handler = async(event: any) => {
   // TODO implement
 
   logger.appendKeys({
-    resource_path: event.requestContext.resourcePath
+    resource_path: event
   });
 
   try{

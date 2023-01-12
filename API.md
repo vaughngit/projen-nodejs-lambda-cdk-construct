@@ -312,12 +312,12 @@ The tree node.
 ```typescript
 import { PowerToolsLambdaConstruct } from 'projen-nodejs-lambda-cdk-construct'
 
-new PowerToolsLambdaConstruct(parent: Construct, name: string, props: IPowerToolsLambdaProperties)
+new PowerToolsLambdaConstruct(parent: Stack, name: string, props: IPowerToolsLambdaProperties)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.parent">parent</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.parent">parent</a></code> | <code>aws-cdk-lib.Stack</code> | *No description.* |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.props">props</a></code> | <code><a href="#projen-nodejs-lambda-cdk-construct.IPowerToolsLambdaProperties">IPowerToolsLambdaProperties</a></code> | *No description.* |
 
@@ -325,7 +325,7 @@ new PowerToolsLambdaConstruct(parent: Construct, name: string, props: IPowerTool
 
 ##### `parent`<sup>Required</sup> <a name="parent" id="projen-nodejs-lambda-cdk-construct.PowerToolsLambdaConstruct.Initializer.parameter.parent"></a>
 
-- *Type:* constructs.Construct
+- *Type:* aws-cdk-lib.Stack
 
 ---
 
