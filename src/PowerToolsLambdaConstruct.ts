@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { Duration } from 'aws-cdk-lib';
+import { Duration, Stack } from 'aws-cdk-lib';
 //import { Code, Function, Runtime, RuntimeFamily } from 'aws-cdk-lib/aws-lambda';
 import { Code, Function, LayerVersion, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
@@ -77,10 +77,10 @@ export interface IPowerToolsLambdaProperties {
 
 
 export class PowerToolsLambdaConstruct extends Construct {
-  constructor(parent: Construct, name: string, props: IPowerToolsLambdaProperties) {
+  constructor(parent: Stack, name: string, props: IPowerToolsLambdaProperties) {
     super(parent, name);
 
-    const powertoolsLayer = LayerVersion.fromLayerVersionArn(this, 'powertoolsll', 'arn:aws:lambda:{region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:6');
+    const powertoolsLayer = LayerVersion.fromLayerVersionArn(this, 'powertoolsll', `arn:aws:lambda:${parent.region}:094274105915:layer:AWSLambdaPowertoolsTypeScript:6`);
 
     const {
       solutionName,
