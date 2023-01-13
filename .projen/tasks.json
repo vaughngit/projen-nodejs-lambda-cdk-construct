@@ -90,6 +90,9 @@
           "exec": "jsii --silence-warnings=reserved-word"
         },
         {
+          "exec": "npm install --prefix sourceCode/lambda-ts "
+        },
+        {
           "exec": "esbuild sourceCode/lambda-ts/index.ts --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/lambda-ts/index.js"
         }
       ]

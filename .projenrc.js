@@ -106,6 +106,7 @@ project.gitpod.addVscodeExtensions(
 //project.compileTask.exec('esbuild src/lambda-bundled/index.js --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/lambda-bundled/index.js');
 //project.compileTask.exec('esbuild sourceCode/lambda-bundled/index.js --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/lambda-bundled/index.js');
 //project.compileTask.exec('esbuild src/PowerToolsLambdaConstruct.ts --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/PowerToolsLambdaConstruct.js');
+project.compileTask.exec('npm install --prefix sourceCode/lambda-ts ');
 project.compileTask.exec('esbuild sourceCode/lambda-ts/index.ts --bundle --platform=node --target=node16 --external:aws-sdk --outfile=lib/lambda-ts/index.js');
 
 project.synth();

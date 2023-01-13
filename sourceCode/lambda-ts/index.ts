@@ -12,31 +12,33 @@ const metrics = new Metrics();
 export const handler = async(event: any,  context: Context) => {
   // TODO implement
 
+       // Logger: Log the incoming event
+       logger.info('Lambda invocation event', { event });
+
+       // Tracer: Get facade segment created by AWS Lambda
+       const segment = tracer.getSegment();
+   
+         // Tracer: Create subsegment for the function & set it as active
+       const handlerSegment = segment.addNewSubsegment(`## ${process.env._HANDLER}`);
+       tracer.setSegment(handlerSegment);
+     
+         // Tracer: Annotate the subsegment with the cold start & serviceName
+       tracer.annotateColdStart();
+       tracer.addServiceNameAnnotation();
+   
+         // Tracer: Add awsRequestId as annotation
+         tracer.putAnnotation('awsRequestId', context.awsRequestId);
+   
+           // Metrics: Capture cold start metrics
+         metrics.captureColdStartMetric();
+   
+           // Logger: Append awsRequestId to each log statement
+         logger.appendKeys({
+           awsRequestId: context.awsRequestId,
+         });
+
   try{
-     // Logger: Log the incoming event
-    logger.info('Lambda invocation event', { event });
 
-    // Tracer: Get facade segment created by AWS Lambda
-    const segment = tracer.getSegment();
-
-      // Tracer: Create subsegment for the function & set it as active
-    const handlerSegment = segment.addNewSubsegment(`## ${process.env._HANDLER}`);
-    tracer.setSegment(handlerSegment);
-  
-      // Tracer: Annotate the subsegment with the cold start & serviceName
-    tracer.annotateColdStart();
-    tracer.addServiceNameAnnotation();
-
-      // Tracer: Add awsRequestId as annotation
-      tracer.putAnnotation('awsRequestId', context.awsRequestId);
-
-        // Metrics: Capture cold start metrics
-      metrics.captureColdStartMetric();
-
-        // Logger: Append awsRequestId to each log statement
-      logger.appendKeys({
-        awsRequestId: context.awsRequestId,
-      });
 
        // Request a sample random uuid from a webservice
       const res = await request<{ uuid: string }>({
