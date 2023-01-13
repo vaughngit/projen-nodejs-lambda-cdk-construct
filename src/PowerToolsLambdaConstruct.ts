@@ -131,6 +131,7 @@ export class PowerToolsLambdaConstruct extends Construct {
       code: Code.fromAsset(path.join(__dirname, props.sourceCodedirPath)),
       handler: 'index.handler',
       timeout: Duration.seconds(timeout),
+
       // logRetention: parseInt(logRetention),
       environment: {
         NODE_OPTIONS: '--enable-source-maps',

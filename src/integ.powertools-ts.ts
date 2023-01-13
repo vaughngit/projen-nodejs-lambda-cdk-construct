@@ -34,6 +34,7 @@ export class IntegTesting {
       description: 'Integration Test of Lambda Powertools construct',
       functionName: 'IntegrationTestlambdatools',
       sourceCodedirPath: '../lib/lambda-ts',
+
       timeout: 50,
     });
 
