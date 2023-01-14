@@ -19,23 +19,21 @@ const project = new awscdk.AwsCdkConstructLibrary({
   //cdkVersionPinning: false, // see https://www.matthewbonig.com/2021/04/06/automating-construct-publishing/
   defaultReleaseBranch: 'main',
   name: 'projen-nodejs-lambda-cdk-construct',
+  description: 'cdk lambda constrct with powertools integration',
   repositoryUrl: 'https://github.com/vaughngit/projen-nodejs-lambda-cdk-construct.git',
   docgen: true,
   license: 'Apache-2.0',
   keywords: ['functions', 'nodejs', 'cdk', 'AWS', 'lambda', 'powertools'],
   bundledDeps: [
-    '@aws-lambda-powertools/commons',
+    // '@aws-lambda-powertools/commons',
     '@aws-lambda-powertools/logger',
     '@aws-lambda-powertools/metrics',
     '@aws-lambda-powertools/tracer',
     '@middy/core',
-    'aws-sdk',
-    'moment',
+    // 'aws-sdk',
+    // 'moment',
   ],
-  deps: [
-    //'vaughntech-nodejs-powertools-lambdalayer',
-  //  'esbuild'
-  ], /* Runtime dependencies of this module. */
+  deps: [], /* Runtime dependencies of this module. */
   devDeps: [
     'esbuild',
   ], /* Build dependencies for this module. */
@@ -53,22 +51,21 @@ const project = new awscdk.AwsCdkConstructLibrary({
   autoApproveOptions: {
     allowedUsernames: ['github-bot', 'vaughngit', 'github-actions'],
   },
-  //gitignore: ['cdk.out'],
-  //npmignore: ['cdk.out', 'examples', 'gitpod_scripts'],
+  //NPMJS Package
   //publishDryRun: true,
-  releaseToNpm: false,
+  //releaseToNpm: false,
 
-  /*   packageName: 'vaughntech-nodejs-lambda-construct', //
-  description: 'AWS Node.js Lambda functions baselined with powertool powered tracing, structured logging, custom metrics, and cloudwatch dashboards to help visualize performance.',
+  packageName: 'vt-lambda-construct',
+  /*
   publishToNuget: {
-    dotNetNamespace: 'VaughnTech.CDK',
-    packageId: 'VaughnTech.CDK.NodeJsLambdaConstruct',
+    dotNetNamespace: 'vt.cdk',
+    packageId: 'vt.cdk.lambdaConstruct',
   },
   publishToPypi: {
-    distName: 'vaughntech.cdk-nodejs-lambda-constuct',
-    module: 'vaughntech_cdk_nodejs_lambda_construct',
+    distName: 'vt.cdk-lambda-constuct',
+    module: 'vt_cdk_lambda_construct',
   },
- */
+  */
   gitpod: true,
 });
 
