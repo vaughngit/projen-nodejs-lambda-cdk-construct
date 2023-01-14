@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "middy": "^0.36.0",
     "phin": "^3.7.0"
   }
 }
