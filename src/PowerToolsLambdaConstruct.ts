@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { Duration, Stack } from 'aws-cdk-lib';
 //import { Code, Function, Runtime, RuntimeFamily } from 'aws-cdk-lib/aws-lambda';
-import { Code, Function, LayerVersion, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
+import { Code, Function, IFunction, LayerVersion, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { LogLevel } from './props';
 //import { logger, tracer, metrics } from "./powertools"
@@ -77,6 +77,9 @@ export interface IPowerToolsLambdaProperties {
 
 
 export class PowerToolsLambdaConstruct extends Construct {
+
+  public readonly function: IFunction;
+
   constructor(parent: Stack, name: string, props: IPowerToolsLambdaProperties) {
     super(parent, name);
 
@@ -122,7 +125,7 @@ export class PowerToolsLambdaConstruct extends Construct {
     };
 
     // most simple function with static inline code that prints the event and calls the callback function
-    new Function(this, 'PowerToolsFunction', {
+    const powertoolsFunction = new Function(this, 'PowerToolsFunction', {
       functionName,
       description,
       memorySize,
@@ -146,6 +149,7 @@ export class PowerToolsLambdaConstruct extends Construct {
       ],
     });
 
+    this.function = powertoolsFunction;
 
   }
 }

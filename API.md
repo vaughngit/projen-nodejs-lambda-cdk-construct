@@ -388,6 +388,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#vt-lambda-construct.PowerToolsLambdaConstruct.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#vt-lambda-construct.PowerToolsLambdaConstruct.property.function">function</a></code> | <code>aws-cdk-lib.aws_lambda.IFunction</code> | *No description.* |
 
 ---
 
@@ -400,6 +401,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `function`<sup>Required</sup> <a name="function" id="vt-lambda-construct.PowerToolsLambdaConstruct.property.function"></a>
+
+```typescript
+public readonly function: IFunction;
+```
+
+- *Type:* aws-cdk-lib.aws_lambda.IFunction
 
 ---
 
